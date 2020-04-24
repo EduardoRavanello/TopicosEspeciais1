@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Long;
 import java.util.Date;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 /**
  * Entity implementation class for Entity: SemestreCurso
@@ -15,8 +16,12 @@ public class SemestreCurso implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SemestreCursoId")
+	@SequenceGenerator(name = "SemestreCursoId", sequenceName = "SemestreCursoId", allocationSize = 1)
 	private Long id;
+	@NotBlank(message = "Informar a data de inicio!")
 	private Date dataInicio;
+	@NotBlank(message = "Informar a data de fim!")
 	private Date dataFim;
 	private static final long serialVersionUID = 1L;
 

@@ -5,6 +5,7 @@ import java.lang.Integer;
 import java.lang.Long;
 import java.lang.String;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 /**
  * Entity implementation class for Entity: disciplinaSemestre
@@ -16,7 +17,10 @@ public class disciplinaSemestre implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DisciplinaSemestreId")
+	@SequenceGenerator(name = "DisciplinaSemestreId", sequenceName = "DisciplinaSemestreId", allocationSize = 1)
 	private Long id;
+	@NotBlank(message = "Informar o grupo!")
 	private String grupo;
 	private Integer distribuidosEad;
 	private Integer distribuidosPraticos;
